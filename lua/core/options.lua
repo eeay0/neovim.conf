@@ -27,7 +27,7 @@ vim.opt.pumblend = 10 -- Popup blend
 vim.opt.pumheight = 12 -- Maximum number of entries in a popup
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.scrolloff = 8 -- Lines of context
-vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
+vim.opt.sessionoptions = {"blank", "buffers", "curdir", "tabpages","folds", "winsize", "help", "globals", "skiprtp", "folds", "terminal", "localoptions" }
 vim.opt.shiftround = true -- Round indent
 vim.opt.shiftwidth = 4 -- Size of an indent
 vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
@@ -80,3 +80,8 @@ vim.diagnostic.config({
         prefix = "",
     },
 })
+
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
