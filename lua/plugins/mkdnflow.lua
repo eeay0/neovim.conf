@@ -88,7 +88,7 @@ return {
                 object_count_icon_set = "nerdfont", -- Use/fall back on the nerdfont icon set
                 object_count_opts = function()
                     local opts = {
-                        link = false, -- Prevent links from being counted
+                        link = false,  -- Prevent links from being counted
                         blockquote = { -- Count block quotes (these aren't counted by default)
                             icon = " ",
                             count_method = {
@@ -140,9 +140,9 @@ return {
                 MkdnPrevHeading = { "n", "[[" },
                 MkdnGoBack = { "n", "<BS>" },
                 MkdnGoForward = { "n", "<Del>" },
-                MkdnCreateLink = false, -- see MkdnEnter
+                MkdnCreateLink = false,                                      -- see MkdnEnter
                 MkdnCreateLinkFromClipboard = { { "n", "v" }, "<leader>p" }, -- see MkdnEnter
-                MkdnFollowLink = false, -- see MkdnEnter
+                MkdnFollowLink = false,                                      -- see MkdnEnter
                 MkdnDestroyLink = { "n", "<M-CR>" },
                 MkdnTagSpan = { "v", "<M-CR>" },
                 MkdnMoveSource = { "n", "<F2>" },
@@ -158,7 +158,7 @@ return {
                 MkdnUpdateNumbering = { "n", "<leader>nn" },
                 MkdnTableNextCell = { "i", "<Tab>" },
                 MkdnTablePrevCell = { "i", "<S-Tab>" },
-                MkdnTableNextRow = false,
+                MkdnTableNextRow = { "i", "<M-S-CR>" },
                 MkdnTablePrevRow = { "i", "<M-CR>" },
                 MkdnTableNewRowBelow = { "n", "<leader>ir" },
                 MkdnTableNewRowAbove = { "n", "<leader>iR" },
