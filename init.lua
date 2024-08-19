@@ -23,5 +23,6 @@ plug_it("plugins.oil")
 plug_it("plugins.zen")
 -- plug_it("plugins.nvim-lint")
 plug_it("plugins.markdown")
+plug_it("plugins.qmk")
 -----------
 require("plugins.lazynvim")
