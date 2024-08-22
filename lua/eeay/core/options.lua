@@ -27,7 +27,20 @@ vim.opt.pumblend = 10
 vim.opt.pumheight = 12
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 8
-vim.opt.sessionoptions = {"blank", "buffers", "curdir", "tabpages","folds", "winsize", "help", "globals", "skiprtp", "folds", "terminal", "localoptions" }
+vim.opt.sessionoptions = {
+    "blank",
+    "buffers",
+    "curdir",
+    "tabpages",
+    "folds",
+    "winsize",
+    "help",
+    "globals",
+    "skiprtp",
+    "folds",
+    "terminal",
+    "localoptions",
+}
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 4
 vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
@@ -49,7 +62,7 @@ vim.opt.termguicolors = true
 vim.opt.timeoutlen = 300
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
-vim.opt.updatetime = 50 
+vim.opt.updatetime = 50
 vim.opt.virtualedit = "block"
 vim.opt.wildmode = "longest:full,full"
 vim.opt.wrap = true
