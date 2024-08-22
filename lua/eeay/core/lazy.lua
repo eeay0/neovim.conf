@@ -23,40 +23,7 @@ require("lazy").setup({
     },
     install = { colorscheme = { "habamax" } },
     ui = {
-        -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-        border = "none",
-        -- The backdrop opacity. 0 is fully opaque, 100 is fully transparent.
-        backdrop = 60,
-        title = nil, ---@type string only works when border is not "none"
-        title_pos = "center", ---@type "center" | "left" | "right"
-        -- Show pills on top of the Lazy window
-        pills = true, ---@type boolean
-        icons = {
-            cmd = " ",
-            config = "",
-            event = " ",
-            favorite = " ",
-            ft = " ",
-            init = " ",
-            import = " ",
-            keys = " ",
-            lazy = "󰒲 ",
-            loaded = "●",
-            not_loaded = "○",
-            plugin = " ",
-            runtime = " ",
-            require = "󰢱 ",
-            source = " ",
-            start = " ",
-            task = "✔ ",
-            list = {
-                "●",
-                "➜",
-                "★",
-                "‒",
-            },
-        },
         checker = { enabled = false },
-        change_detection = { enabled = false },
+        change_detection = { enabled = false, notify = false },
     },
 })

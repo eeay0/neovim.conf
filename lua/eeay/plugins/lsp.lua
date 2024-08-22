@@ -36,5 +36,15 @@ return {
 
         lsp.lua_ls.setup({ capabilities = capabilities })
         lsp.clangd.setup({ capabilities = capabilities })
+        lsp.rust_analyzer.setup({
+            capabilities = capabilities,
+            settings = {
+                cargo = {
+                    allFeatures = true,
+                },
+            },
+        })
+        lsp.zls.setup({ capabilities = capabilities })
+        lsp.gopls.setup({ capabilities = capabilities })
     end,
 }

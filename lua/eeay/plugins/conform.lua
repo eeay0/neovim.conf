@@ -12,14 +12,11 @@ return {
     opts = {
         formatters_by_ft = {
             lua = { "stylua" },
-            c = {"clang-format"},
-            fish = { "fish_indent" },
-            python = { "autopep8" },
-            shell = { "beautysh" },
-            sh = { "beautysh" },
-            zsh = { "beautysh" },
+            c = { "clang-format" },
+            rust = { "rustfmt" },
+            zig = { "zigfmt " },
+            go = {"gofmt"},
             markdown = { "prettier", "cbfmt" },
-            rust = {"rustfmt"}
         },
 
         formatters = {
