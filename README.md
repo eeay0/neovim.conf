@@ -4,6 +4,8 @@
 - Git
 - luarocks
 - nerdfont
+- wordnet-cli
+- words
 
 ### Languages
 - Lua
