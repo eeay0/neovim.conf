@@ -31,9 +31,8 @@ return {
 
 
 
-        local map = vim.keymap.set
-        -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-        -- capabilities.offsetEncoding = "utf-8"
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        capabilities.offsetEncoding = "utf-8"
 
         require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
         require("inc_rename").setup({})
