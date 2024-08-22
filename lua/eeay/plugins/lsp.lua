@@ -16,7 +16,7 @@ return {
         vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
         vim.keymap.set("n", "<space>wl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
         vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-        vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+        -- vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
         vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "[d", vim.diagnostic.get_prev, opts)
@@ -32,7 +32,9 @@ return {
 
         require("neodev").setup({ library = { plugins = { "nvim-dap-ui" }, types = true } })
         require("inc_rename").setup({})
+        vim.keymap.set("n", "<space>rn", ": IncRename ", opts)
 
-        lsp.lua_ls.setup({})
+        lsp.lua_ls.setup({ capabilities = capabilities })
+        lsp.clangd.setup({ capabilities = capabilities })
     end,
 }

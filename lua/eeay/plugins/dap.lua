@@ -39,7 +39,6 @@ return {
                 command = "gdb",
                 args = { "-i", "dap" },
             }
-
             dap.configurations.c = {
                 {
                     name = "Launch",
@@ -50,6 +49,9 @@ return {
                     stopAtBeginningOfMainSubprogram = false,
                 },
             }
+
+            dap.configurations.cpp = dap.configurations.c
+            dap.configurations.cpp = dap.configurations.rust
         end,
     },
 }
