@@ -1,3 +1,4 @@
---- BUILT IN ---
-require("eeay.builtin.options")
-require("eeay.builtin.keymaps")
+--- CORE ---
+require("eeay.core.options")
+require("eeay.core.keymaps")
+require("eeay.core.lazy.lua")
