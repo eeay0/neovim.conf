@@ -103,6 +103,8 @@ return {
                         background = true,
                     },
                     treesitter_context = true,
+                    markdown = true,
+                    render_markdown = true,
                 },
             },
         })
