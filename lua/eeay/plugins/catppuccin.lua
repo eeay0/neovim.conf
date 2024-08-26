@@ -69,6 +69,7 @@ return {
                 gitsigns = true,
                 treesitter = true,
                 noice = true,
+                notify = true,
                 harpoon = true,
                 indent_blankline = {
                     enabled = true,

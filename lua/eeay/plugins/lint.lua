@@ -7,6 +7,9 @@ return {
             c = { "cppcheck" },
             rust = { "clippy" },
             go = { "golangcilint" },
+            bash = { "shellcheck" },
+            fish = { "fish" },
+            python = { "pylint" },
         }
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
             callback = function()

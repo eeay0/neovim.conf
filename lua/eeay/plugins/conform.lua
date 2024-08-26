@@ -15,8 +15,11 @@ return {
             c = { "clang-format" },
             rust = { "rustfmt" },
             zig = { "zigfmt " },
-            go = {"gofmt"},
+            go = { "gofmt" },
+            bash = { "shfmt" },
+            fish = { "fish_indent" },
             markdown = { "prettier", "cbfmt" },
+            python = {"autopep8"},
         },
 
         formatters = {
