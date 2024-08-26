@@ -35,19 +35,7 @@ return {
         vim.keymap.set("n", "<space>rn", ": IncRename ", opts)
 
         lsp.lua_ls.setup({ capabilities = capabilities })
-        lsp.clangd.setup({ capabilities = capabilities })
-        lsp.rust_analyzer.setup({
-            capabilities = capabilities,
-            settings = {
-                cargo = {
-                    allFeatures = true,
-                },
-            },
-        })
-        lsp.zls.setup({ capabilities = capabilities })
-        lsp.gopls.setup({ capabilities = capabilities })
         lsp.bashls.setup({ capabilities = capabilities })
         lsp.fish_lsp.setup({ capabilities = capabilities })
-        lsp.pyright.setup({ capabilities = capabilities })
     end,
 }
