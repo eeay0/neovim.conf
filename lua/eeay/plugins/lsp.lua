@@ -37,5 +37,6 @@ return {
         lsp.lua_ls.setup({ capabilities = capabilities })
         lsp.bashls.setup({ capabilities = capabilities })
         lsp.fish_lsp.setup({ capabilities = capabilities })
+        lsp.jsonls.setup({ capabilities = capabilities })
     end,
 }
