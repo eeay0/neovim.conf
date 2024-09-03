@@ -1,6 +1,6 @@
 return {
     'codethread/qmk.nvim',
-    event = { "UiEnter" },
+    cmd = "QMKFormat",
     config = function()
         require('qmk').setup {
             name = "LAYOUT_split_3x5_3",

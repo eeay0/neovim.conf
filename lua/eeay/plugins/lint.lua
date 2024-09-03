@@ -1,6 +1,6 @@
 return {
     "mfussenegger/nvim-lint",
-    event = "UiEnter",
+    event = { "BufWrite", "BufWritePost" },
     config = function()
         require("lint").linters_by_ft = {
             lua = { "luacheck" },

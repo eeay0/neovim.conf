@@ -1,6 +1,6 @@
 return {
     "lewis6991/gitsigns.nvim",
-    event = "UiEnter",
+    event = { "BufRead", "BufNewFile" },
     config = function()
         require("gitsigns").setup({
             signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`

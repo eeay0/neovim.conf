@@ -6,7 +6,15 @@ return {
         "nvim-lua/plenary.nvim",
         "debugloop/telescope-undo.nvim",
     },
-    event = "UiEnter",
+    cmd = "Telescope",
+    keys = {
+        { "<A-o>",      "<cmd> Telescope find_files <CR>" },
+        { "<leader>fg", "<cmd> Telescope live_grep <cr>" },
+        { "<leader>fh", "<cmd> Telescope help_tags <cr>" },
+        { "<leader>fk", "<cmd> Telescope keymaps <cr>" },
+        { "<leader>fu", "<cmd> Telescope undo <CR>" },
+        { "<leader>ft", "<cmd> TodoTelescope <CR>" },
+    },
     config = function()
         local actions = require("telescope.actions")
         require("telescope").setup({
@@ -73,13 +81,5 @@ return {
         })
         require("telescope").load_extension("fzf")
         require("telescope").load_extension("undo")
-        local builtin = require("telescope.builtin")
-        local map = vim.keymap.set
-        map("n", "<A-o>", builtin.find_files, {})
-        map("n", "<leader>fg", builtin.live_grep, {})
-        map("n", "<leader>fb", builtin.buffers, {})
-        map("n", "<leader>fh", builtin.help_tags, {})
-        map("n", "<leader>fu", "<cmd> Telescope undo <CR>")
-        map("n", "<leader>ft", "<cmd> TodoTelescope <CR>")
     end,
 }
