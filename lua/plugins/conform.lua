@@ -5,7 +5,9 @@ return {
     keys = {
         {
             "<leader>f",
-            function() require("conform").format({ async = true, lsp_fallback = true }) end,
+            function()
+                require("conform").format({ async = true, lsp_fallback = true })
+            end,
             desc = "Format buffer",
         },
     },
@@ -15,7 +17,7 @@ return {
             bash = { "shfmt" },
             fish = { "fish_indent" },
             markdown = { "prettier", "cbfmt" },
-            python = {"autopep8"},
+            python = { "autopep8" },
         },
 
         formatters = {

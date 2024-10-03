@@ -4,22 +4,9 @@ return {
     config = function()
         require("mkdnflow").setup({
             modules = {
-                bib = true,
-                buffers = true,
-                conceal = true,
-                cursor = true,
-                folds = true,
-                foldtext = true,
-                links = true,
-                lists = true,
-                maps = true,
-                paths = true,
-                tables = true,
                 yaml = true,
                 cmp = true,
             },
-            filetypes = { md = true, rmd = true, markdown = true },
-            create_dirs = true,
             perspective = {
                 priority = "root",
                 fallback = "current",
@@ -28,29 +15,8 @@ return {
                 update = false,
             },
             wrap = false,
-            bib = {
-                default_path = nil,
-                find_in_root = true,
-            },
-            silent = true,
-            cursor = {
-                jump_patterns = nil,
-            },
-            links = {
-                style = "markdown",
-                name_is_source = false,
-                conceal = true,
-                context = 0,
-                implicit_extension = nil,
-                transform_implicit = false,
-                transform_explicit = function(text)
-                    text = text:gsub(" ", "-")
-                    text = text:lower()
-                    -- text = os.date("%Y-%m-%d_") .. text
-                    return text
-                end,
-                create_on_follow_failure = true,
-            },
+            silent = false,
+            -- learn what is that
             new_file_template = {
                 use_template = false,
                 placeholders = {
@@ -75,12 +41,18 @@ return {
                         local updated_title = text:gsub("%b{}", "")
                         updated_title = updated_title:gsub("^%s*", "")
                         updated_title = updated_title:gsub("%s*$", "")
-                        updated_title = updated_title:gsub("^######", "░░░░░▓")
-                        updated_title = updated_title:gsub("^#####", "░░░░▓▓")
-                        updated_title = updated_title:gsub("^####", "░░░▓▓▓")
-                        updated_title = updated_title:gsub("^###", "░░▓▓▓▓")
-                        updated_title = updated_title:gsub("^##", "░▓▓▓▓▓")
-                        updated_title = updated_title:gsub("^#", "▓▓▓▓▓▓")
+                        updated_title =
+                            updated_title:gsub("^######", "░░░░░▓")
+                        updated_title =
+                            updated_title:gsub("^#####", "░░░░▓▓")
+                        updated_title =
+                            updated_title:gsub("^####", "░░░▓▓▓")
+                        updated_title =
+                            updated_title:gsub("^###", "░░▓▓▓▓")
+                        updated_title =
+                            updated_title:gsub("^##", "░▓▓▓▓▓")
+                        updated_title =
+                            updated_title:gsub("^#", "▓▓▓▓▓▓")
                         return updated_title
                     end
                     return my_title_transformer
@@ -88,7 +60,7 @@ return {
                 object_count_icon_set = "nerdfont", -- Use/fall back on the nerdfont icon set
                 object_count_opts = function()
                     local opts = {
-                        link = false,  -- Prevent links from being counted
+                        link = false, -- Prevent links from being counted
                         blockquote = { -- Count block quotes (these aren't counted by default)
                             icon = " ",
                             count_method = {
@@ -127,9 +99,6 @@ return {
                     mimic_alignment = true,
                 },
             },
-            yaml = {
-                bib = { override = false },
-            },
             mappings = {
                 MkdnEnter = { { "n", "v" }, "<CR>" },
                 MkdnTab = false,
@@ -140,9 +109,9 @@ return {
                 MkdnPrevHeading = { "n", "[[" },
                 MkdnGoBack = { "n", "<BS>" },
                 MkdnGoForward = { "n", "<Del>" },
-                MkdnCreateLink = false,                                      -- see MkdnEnter
+                MkdnCreateLink = false, -- see MkdnEnter
                 MkdnCreateLinkFromClipboard = { { "n", "v" }, "<leader>p" }, -- see MkdnEnter
-                MkdnFollowLink = false,                                      -- see MkdnEnter
+                MkdnFollowLink = false, -- see MkdnEnter
                 MkdnDestroyLink = { "n", "<M-CR>" },
                 MkdnTagSpan = { "v", "<M-CR>" },
                 MkdnMoveSource = { "n", "<F2>" },

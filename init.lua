@@ -1,4 +1,3 @@
---- CORE ---
-require("eeay.core.options")
-require("eeay.core.keymaps")
-require("eeay.core.lazy")
+require("core.options")
+require("core.keymaps")
+require("core.lazy")

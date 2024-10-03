@@ -13,7 +13,10 @@ return {
                 "L3MON4D3/LuaSnip",
                 version = "v2.*",
                 build = "make install_jsregexp",
-                dependencies = { "rafamadriz/friendly-snippets", "saadparwaiz1/cmp_luasnip" },
+                dependencies = {
+                    "rafamadriz/friendly-snippets",
+                    "saadparwaiz1/cmp_luasnip",
+                },
             },
             { "onsails/lspkind.nvim" },
             {
@@ -24,7 +27,9 @@ return {
         },
         config = function()
             require("luasnip.loaders.from_vscode").lazy_load()
-            require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/eeay/src/snippets" } })
+            require("luasnip.loaders.from_vscode").lazy_load({
+                paths = { "/home/eeay/src/snippets" },
+            })
 
             local cmp = require("cmp")
             local lspkind = require("lspkind")
@@ -34,15 +39,24 @@ return {
                 unpack = unpack or table.unpack
                 local line, col = unpack(vim.api.nvim_win_get_cursor(0))
                 return col ~= 0
-                    and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+                    and vim.api
+                            .nvim_buf_get_lines(0, line - 1, line, true)[1]
+                            :sub(col, col)
+                            :match("%s")
+                        == nil
             end
 
             cmp.setup({
                 snippet = {
-                    expand = function(args) require("luasnip").lsp_expand(args.body) end,
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
+                    end,
                 },
                 view = {
-                    entries = { name = "custom", selection_order = "near_cursor" },
+                    entries = {
+                        name = "custom",
+                        selection_order = "near_cursor",
+                    },
                 },
                 window = {
                     completion = {
@@ -65,11 +79,23 @@ return {
                     ghost_text = true,
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ["<C-J>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-K>"] = cmp.mapping.scroll_docs(4),
+                    ["<C-down>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-up>"] = cmp.mapping.scroll_docs(4),
                     ["<C-Space>"] = cmp.mapping.complete(),
                     ["<C-e>"] = cmp.mapping.abort(),
-                    ["<CR>"] = cmp.mapping.confirm({ select = false }),
+                    ["<CR>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            if luasnip.expandable() then
+                                luasnip.expand()
+                            else
+                                cmp.confirm({
+                                    select = true,
+                                })
+                            end
+                        else
+                            fallback()
+                        end
+                    end),
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
@@ -133,8 +159,14 @@ return {
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
-            cmp.event:on("menu_opened", function() vim.b.copilot_suggestion_hidden = true end)
-            cmp.event:on("menu_closed", function() vim.b.copilot_suggestion_hidden = false end)
+            cmp.event:on(
+                "menu_opened",
+                function() vim.b.copilot_suggestion_hidden = true end
+            )
+            cmp.event:on(
+                "menu_closed",
+                function() vim.b.copilot_suggestion_hidden = false end
+            )
         end,
     },
     {
