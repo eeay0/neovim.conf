@@ -19,10 +19,10 @@ map(
 )
 
 -- Move between windows
-map("n", "<A-left>", "<C-w>h", { desc = "Go to left window", remap = true })
-map("n", "<A-down>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map("n", "<A-up>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map("n", "<A-right>", "<C-w>l", { desc = "Go to right window", remap = true })
+-- map("n", "<A-left>", "<C-w>h", { desc = "Go to left window", remap = true })
+-- map("n", "<A-down>", "<C-w>j", { desc = "Go to lower window", remap = true })
+-- map("n", "<A-up>", "<C-w>k", { desc = "Go to upper window", remap = true })
+-- map("n", "<A-right>", "<C-w>l", { desc = "Go to right window", remap = true })
 map("n", "<A-f>", "<C-w><C-w>", { desc = "Next window or Float", remap = true })
 
 -- Resize windows

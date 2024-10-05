@@ -199,7 +199,7 @@ return {
             })
 
             require("cmp_dictionary").setup({
-                paths = { "/usr/share/dict/british" },
+                paths = { "/usr/share/dict/usa" },
                 exact_length = 2,
                 first_case_insensitive = true,
                 document = {
