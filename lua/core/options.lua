@@ -8,7 +8,14 @@ vim.opt.conceallevel = 3
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
-vim.opt.fillchars = { foldopen = "", foldclose = "", fold = "⸱", foldsep = " ", diff = "╱", eob = " " }
+vim.opt.fillchars = {
+    foldopen = "",
+    foldclose = "",
+    fold = "⸱",
+    foldsep = " ",
+    diff = "╱",
+    eob = " ",
+}
 vim.opt.fileencoding = "utf-8"
 vim.opt.formatoptions = "jcroqlnt"
 vim.opt.grepformat = "%f:%l:%c:%m"
@@ -73,7 +80,10 @@ vim.g.markdown_recommended_style = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
 
-vim.api.nvim_create_autocmd("FileType", { pattern = "markdown", command = "set awa" })
+vim.api.nvim_create_autocmd(
+    "FileType",
+    { pattern = "markdown", command = "set awa" }
+)
 vim.diagnostic.config({
     signs = {
         text = {

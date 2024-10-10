@@ -15,7 +15,11 @@ return {
         local map = vim.keymap.set
 
         map("n", "<leader>a", function() harpoon:list():add() end)
-        map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+        map(
+            "n",
+            "<C-e>",
+            function() harpoon.ui:toggle_quick_menu(harpoon:list()) end
+        )
 
         map("n", "<A-1>", function() harpoon:list():select(1) end)
         map("n", "<A-2>", function() harpoon:list():select(2) end)
