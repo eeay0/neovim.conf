@@ -1,23 +1,90 @@
 # Eeay's Neovim Configuratoin
 
-### Dependency list
-- Git
-- luarocks
-- nerdfont
-- wordnet-cli
+### External Dependencies
+- fd
+- fzf
+- ripgrep
 - words
+- word-net-cli
+- Mason:
+    - UNIX:
+        - git
+        - curl
+        - unzip
+        - tar
+        - gzip
+    - WINDOWS:
+        - PowerShell
+        - GNU tar
+        - 7zip
+    - OTHERS:
+        - npm
+        - luarocks
+        - gdb for c debug
+        - go
+        - cargo
+        - dotnet
+## Semester Update To-Do List
 
-### Languages
-- Lua
-- C
-- C++
-- Rust
-- Zig
-- Go
-- Bash
-- Fish
-- Python
-- make
-- cmake
-- HTML/CSS
-- Markdown
+- [ ] Make list of external dependencies:
+    - [ ] All of the language specific tools will relay to Mason. Add Mason dependencies to the list.
+    - [ ] Write bash and powershell scripts will install Neovim and its dependencies.
+- [/] Add support to only those languages:
+   - [/] C:
+       - [/] LSP
+       - [/] Debug
+       - [/] Formatter
+       - [/] Linter
+   - [/] Assembly:
+       - [/] LSP
+       - [/] Formatter
+   - [/] Java:
+       - [/] LSP
+       - [/] Debug
+       - [/] Formatter
+       - [/] Linter
+       - [/] Plug-ins
+   - [/] C#:
+       - [/] LSP
+       - [/] Debug
+       - [/] Formatter
+   - [/] Python:
+       - [/] LSP
+       - [/] Debug
+       - [/] Formatter
+       - [/] Linter
+   - [/] SQL:
+       - [/] LSP
+       - [/] Formatter
+       - [/] Linter
+   - [ ] Markdown:
+       - [ ] LSP
+       - [ ] Debug
+       - [ ] Formatter
+       - [ ] Linter
+       - [ ] Plug-ins:
+           - [ ] markdown render
+           - [ ] mkdnflow
+           - [ ] obsidian
+   - [/] Bash:
+       - [/] LSP
+       - [/] Debug
+       - [/] Formatter
+       - [/] Linter
+   - [ ] ZSH or any other interactive shell:
+       - [ ] LSP
+       - [ ] Debug
+       - [ ] Formatter
+       - [ ] Linter
+       - [ ] Plug-ins
+   - [/] PowerShell:
+       - [/] LSP
+       - [/] Debug
+       - [/] Formatter
+       - [/] Linter
+   - [/] Lua:
+       - [/] LSP
+       - [/] Formatter
+       - [/] Linter
+
+
