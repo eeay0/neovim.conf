@@ -11,6 +11,7 @@ return {
         "mfussenegger/nvim-dap",
         "rcarriga/nvim-dap-ui",
         "theHamsta/nvim-dap-virtual-text",
+        "mfussenegger/nvim-dap-python",
     },
     init = function() end,
     event = { "BufRead", "BufNewFile" },
@@ -28,42 +29,6 @@ return {
 
         require("mason-tool-installer").setup({
             ensure_installed = {
-                -- C
-                "clangd",
-                "clang-format",
-                "codelldb",
-                "cpplint",
-                -- Assembly
-                "asm-lsp",
-                "asmfmt",
-                -- Java
-                "jdtls",
-                "google-java-format",
-                "checkstyle",
-                -- C#
-                "csharp-language-server",
-                "netcoredbg",
-                "csharpier",
-                -- Python
-                "pyright",
-                "debugpy",
-                "black",
-                "flake8",
-                -- SQL
-                "sqls",
-                "sqlfluff",
-                "sql-formatter",
-                -- Markdown
-                "remark-language-server",
-                "remark-cli",
-                "prettier",
-                -- Bash
-                "bash-language-server",
-                "bash-debug-adapter",
-                "shellcheck",
-                "beautysh",
-                -- Powershell
-                "powershell-editor-services",
                 -- Lua
                 "lua-language-server",
                 "stylua",
@@ -98,6 +63,7 @@ return {
         vim.keymap.set("n", "]d", vim.diagnostic.get_next, opts)
         vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
         -- vim.keymap.set('n', '<space>f', vim.lsp.buf.format, opts)
+        vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action)
 
         local lsp = require("lspconfig")
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -111,45 +77,20 @@ return {
 
         --- SERVERS
         lsp.lua_ls.setup({ capabilities = capabilities })
-        lsp.fish_lsp.setup({ capabilities = capabilities })
-        lsp.clangd.setup({ capabilities = capabilities })
-        lsp.asm_lsp.setup({ capabilities = capabilities })
-        lsp.jdtls.setup({
-            capabilities = capabilities,
-            settings = {
-                java = {
-                    configuration = {
-                        runtimes = {
-                            {
-                                name = "JavaSE-21",
-                                path = "lib/jvm/java-21-openjdk",
-                                default = true,
-                            },
-                        },
-                    },
-                },
-            },
-        })
-        lsp.csharp_ls.setup({ capabilities = capabilities })
-        lsp.pyright.setup({ capabilities = capabilities })
-        lsp.sqls.setup({ capabilities = capabilities })
-        lsp.remark_ls.setup({ capabilities = capabilities })
+        lsp.html.setup({ capabilities = capabilities })
+        lsp.cssls.setup({ capabilities = capabilities })
+        lsp.ts_ls.setup({ capabilities = capabilities })
         lsp.bashls.setup({ capabilities = capabilities })
-        lsp.powershell_es.setup({ capabilities = capabilities })
-
         -- formatter
         require("conform").setup({
             formatters_by_ft = {
-                c = { "clang-format" },
-                asm = { "asmfmt" },
-                java = { "google-java-format" },
-                cs = { "csharpier" },
                 lua = { "stylua" },
+                javascript = {
+                    "prettier",
+                },
+                html = { "prettier" },
+                css = { "prettier" },
                 bash = { "shfmt" },
-                fish = { "fish_indent" },
-                markdown = { "prettier", "cbfmt" },
-                python = { "black" },
-                sql = { "sql_formatter" },
             },
 
             formatters = {
@@ -169,12 +110,6 @@ return {
         -- linter
         require("lint").linters_by_ft = {
             lua = { "luacheck" },
-            bash = { "shellcheck" },
-            fish = { "fish" },
-            python = { "flake8" },
-            c = { "cpplint" },
-            java = { "checkstyle" },
-            sql = { "sqlfluff" },
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -183,7 +118,5 @@ return {
                 -- require("lint").try_lint("cspell")
             end,
         })
-
-        -- Debug
     end,
 }

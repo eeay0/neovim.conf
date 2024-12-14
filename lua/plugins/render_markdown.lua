@@ -1,5 +1,5 @@
 return {
-    "MeanderingProgrammer/markdown.nvim",
+    "MeanderingProgrammer/render-markdown.nvim",
     ft = "markdown",
     main = "render-markdown",
     opts = {},
@@ -9,6 +9,7 @@ return {
     },
     config = function()
         require("render-markdown").setup({
+            file_types = { "markdown", "vimwiki" },
             render_modes = true,
             checkbox = {
                 custom = {

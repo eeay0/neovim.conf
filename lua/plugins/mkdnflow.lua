@@ -14,6 +14,20 @@ return {
                 nvim_wd_heel = false,
                 update = false,
             },
+            links = {
+                style = "markdown",
+                name_is_source = false,
+                conceal = false,
+                context = 0,
+                implicit_extension = nil,
+                transform_implicit = false,
+                transform_explicit = function(text)
+                    text = text:gsub(" ", "-")
+                    text = text:lower()
+                    return text
+                end,
+                create_on_follow_failure = true,
+            },
             wrap = false,
             silent = false,
             -- learn what is that
@@ -36,55 +50,22 @@ return {
                 complete = "X",
             },
             foldtext = {
-                title_transformer = function()
-                    local function my_title_transformer(text)
-                        local updated_title = text:gsub("%b{}", "")
-                        updated_title = updated_title:gsub("^%s*", "")
-                        updated_title = updated_title:gsub("%s*$", "")
-                        updated_title =
-                            updated_title:gsub("^######", "░░░░░▓")
-                        updated_title =
-                            updated_title:gsub("^#####", "░░░░▓▓")
-                        updated_title =
-                            updated_title:gsub("^####", "░░░▓▓▓")
-                        updated_title =
-                            updated_title:gsub("^###", "░░▓▓▓▓")
-                        updated_title =
-                            updated_title:gsub("^##", "░▓▓▓▓▓")
-                        updated_title =
-                            updated_title:gsub("^#", "▓▓▓▓▓▓")
-                        return updated_title
-                    end
-                    return my_title_transformer
-                end,
-                object_count_icon_set = "nerdfont", -- Use/fall back on the nerdfont icon set
+                object_count = true,
+                object_count_icons = "emoji",
                 object_count_opts = function()
-                    local opts = {
-                        link = false, -- Prevent links from being counted
-                        blockquote = { -- Count block quotes (these aren't counted by default)
-                            icon = " ",
-                            count_method = {
-                                pattern = { "^>.+$" },
-                                tally = "blocks",
-                            },
-                        },
-                        fncblk = {
-                            -- Override the icon for fenced code blocks with 
-                            icon = " ",
-                        },
-                    }
-                    return opts
+                    return require("mkdnflow").foldtext.default_count_opts()
                 end,
-                line_count = true, -- Prevent lines from being counted
-                word_count = true, -- Count the words in the section
+                line_count = true,
+                line_percentage = true,
+                word_count = false,
+                title_transformer = nil,
+                separator = " · ",
                 fill_chars = {
-                    left_edge = "╾─ ─",
-                    right_edge = "──╼",
-                    item_separator = " · ",
-                    section_separator = " // ",
-                    left_inside = " ┝",
-                    right_inside = "┥ ",
-                    middle = "─",
+                    left_edge = "⢾",
+                    right_edge = "⡷",
+                    left_inside = " ⣹",
+                    right_inside = "⣏ ",
+                    middle = "⣿",
                 },
             },
             tables = {
@@ -133,8 +114,8 @@ return {
                 MkdnTableNewRowAbove = { "n", "<leader>iR" },
                 MkdnTableNewColAfter = { "n", "<leader>ic" },
                 MkdnTableNewColBefore = { "n", "<leader>iC" },
-                MkdnFoldSection = { "n", "<leader>ff" },
-                MkdnUnfoldSection = { "n", "<leader>F" },
+                MkdnFoldSection = false,
+                MkdnUnfoldSection = false,
             },
         })
     end,

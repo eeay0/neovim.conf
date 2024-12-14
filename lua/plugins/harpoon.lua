@@ -21,12 +21,10 @@ return {
             function() harpoon.ui:toggle_quick_menu(harpoon:list()) end
         )
 
-        map("n", "<A-1>", function() harpoon:list():select(1) end)
-        map("n", "<A-2>", function() harpoon:list():select(2) end)
-        map("n", "<A-3>", function() harpoon:list():select(3) end)
-        map("n", "<A-4>", function() harpoon:list():select(4) end)
-        map("n", "<A-5>", function() harpoon:list():select(5) end)
-        map("n", "<A-6>", function() harpoon:list():select(6) end)
+        map("n", "<A-h>", function() harpoon:list():select(1) end)
+        map("n", "<A-t>", function() harpoon:list():select(2) end)
+        map("n", "<A-n>", function() harpoon:list():select(3) end)
+        map("n", "<A-s>", function() harpoon:list():select(4) end)
 
         -- Toggle previous & next buffers stored within Harpoon list
         map("n", "<C-S-P>", function() harpoon:list():prev() end)
